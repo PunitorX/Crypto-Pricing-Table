@@ -17,6 +17,8 @@ function App() {
     setSearch(e.target.value);
   }
 
+  const coinFilter = coins.filter(coin => coin.name.toLowerCase().includes(stats.toLowerCase()))
+
   return (
     <div className="coin-app">
       <div className="coin-search">
@@ -25,7 +27,11 @@ function App() {
           <input type="text" placeholder='Search' className="coin-input"  onChange={handleChange}/>
         </form>
       </div>
- 
+    {coinFilter.map(coin => {
+      return (
+        <Coin key={coin.id} />
+      )
+    })}
     </div>
   );
 }
