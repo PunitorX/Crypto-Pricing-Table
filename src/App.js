@@ -22,31 +22,30 @@ function App() {
   const coinFilter = stats.filter(stat => stat.name.toLowerCase().includes(search.toLowerCase()))
 
   return (
-    <div className="coin-app mx-auto bg-gradient-to-r bg-[#757575] box-border p-8 text-center font-lato">
-      <div className="coin-search flex flex-col">
-        <h1 className="coin-name my-2 py-2 text-lg tracking-wide text-[#fff] ">Search for a Currency</h1>
+    <div className="coin-app mx-auto bg-gradient-to-r bg-[#000] box-border p-8 text-center font-lato">
+      <div className="coin-search flex  flex-col">
+        <h1 className="coin-name my-2 py-2 text-lg tracking-wide text-[#fff] font-bold ">Search for a Currency</h1>
         <form className='py-2' >
-          <input type="text" placeholder='Search' className="coin-input"  onChange={handleChange}/>
+          <input type="text" placeholder='Search' className="coin-input rounded-full"  onChange={handleChange}/>
         </form>
       </div>
-      <div>
+      <table className='flex flex-col m-4 py-8'>
         {coinFilter.map(stat => {
           return (
-            
-            <Coin 
-            key={stat.id} 
-            name={stat.name}
-            sym={stat.symbol}
-            image={stat.image}
-            price={stat.current_price}
-            volume={stat.market_cap}
-            change={stat.price_change_percentage_24h}
-            high={stat.high_24h}
-            low={stat.low_24h}
-            />
+              <Coin 
+              key={stat.id} 
+              name={stat.name}
+              sym={stat.symbol}
+              image={stat.image}
+              price={stat.current_price}
+              volume={stat.market_cap}
+              change={stat.price_change_percentage_24h}
+              high={stat.high_24h}
+              low={stat.low_24h}
+              />
           )
         })}
-      </div>
+        </table>
     </div>
   );
 }
