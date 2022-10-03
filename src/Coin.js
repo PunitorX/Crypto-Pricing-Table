@@ -2,29 +2,25 @@ import React from 'react'
 
 const Coin = ({name, image, sym, price, volume, change, high, low}) => {
   return (
-    
-    <div className="coin-container text-white text-[1.4rem] flex justify-center" >
-        <table className="coin-row">
-            <tbody className="coin-data ">
-              <tr className='border-b-4 '>
-                <img src={image} alt="" className="coin-img m-2 p-4 scale-75 h-[100px] " />
-                <td className="coin-name px-8 w-[175px] text-left text-align w-40">{name}</td>
-                <td className="coin-symbol px-8 w-[175px] text-left w-40">{sym}</td>
-                <td className="coin-price px-8 w-[175px] text-left w-40">${price.toLocaleString()}</td>
-                <td className="coin-volume px-8 w-[175px] text-left w-60">${volume.toLocaleString()}</td>
+            <tbody className="coin-data border-b-4 border-[#29b6f6]">
+              <tr>
+                <td className='w-40'>
+                  <img src={image} alt="" className="coin-img m-2 p-4 scale-75 h-[100px] " /></td>
+                <td className="coin-name  w-[195px] text-left ">{name}</td>
+                <td className="coin-symbol  w-[125px] text-left ">{sym}</td>
+                <td className="coin-price  w-[150px] text-left ">${price.toLocaleString()}</td>
+                <td className="coin-volume  w-[200px] text-left ">${volume.toLocaleString()}</td>
 
                 {change < 0 ? (
-                  <td className='text-red-600 px-8 w-[175px] text-left w-40'>{change.toFixed(2)}%</td>
+                  <td className='text-[#e53935]  w-[150px] text-left '>{change.toFixed(2)}%</td>
                 ) : (
-                  <td className='text-green-600 px-8 w-[175px] text-left w-40'>{change.toFixed(2)}%</td>
+                  <td className='text-[#4caf50]  w-[150px] text-left '>{change.toFixed(2)}%</td>
                 )}
                 
-                <td className='px-8 w-[175px] text-left w-40'>${high.toLocaleString()}</td>
-                <td className='px-8 w-[175px] text-left w-40'>${low.toLocaleString()}</td>
+                <td className=' w-[175px] text-left '>${high.toLocaleString()}</td>
+                <td className=' w-[175px] text-left '>${low.toLocaleString()}</td>
               </tr>
             </tbody>
-        </table>
-    </div>
   )
 }
 
