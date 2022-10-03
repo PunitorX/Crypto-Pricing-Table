@@ -22,7 +22,7 @@ function App() {
   const coinFilter = stats.filter(stat => stat.name.toLowerCase().includes(search.toLowerCase()))
 
   return (
-    <div className="coin-app mx-auto bg-gradient-to-r bg-black h-auto h-screen box-border p-8 text-center font-lato">
+    <div className="coin-app mx-auto bg-gradient-to-r bg-[#757575] box-border p-8 text-center font-lato">
       <div className="coin-search flex flex-col">
         <h1 className="coin-name my-2 py-2 text-lg tracking-wide text-[#fff] ">Search for a Currency</h1>
         <form className='py-2' >
@@ -32,10 +32,11 @@ function App() {
       <div>
         {coinFilter.map(stat => {
           return (
+            
             <Coin 
             key={stat.id} 
             name={stat.name}
-            symbol={stat.sym}
+            sym={stat.symbol}
             image={stat.image}
             price={stat.current_price}
             volume={stat.market_cap}
